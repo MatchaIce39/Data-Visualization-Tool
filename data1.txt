@@ -1,0 +1,22 @@
+Deming 14758
+Los Lunas 17242
+Artesia 12875
+Carlsbad 32238
+Lovington 11668
+Clovis 38567
+Los Alamos 19419
+Sunland Park 16702
+Espanola 10526
+Santa Fe 87505
+Alamogordo 30898
+Gallup 21899
+Hobbs 40508
+Farmington 46624
+Las Cruces 111385
+Albuquerque 564559
+Portales 12137
+Rio Rancho 104026
+Roswell 48422
+Las Vegas 13166
+
+
