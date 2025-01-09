@@ -5,6 +5,8 @@
 #define MAX_COLS 50 //this is how much each can hold
 #define MAX_ROWS 10 //This is the amount of actual lines in the text file
 
+int getDimensions(const char *filename, int *rows);
+
 void swap(char str1[], char str2[]) {
     char temp[MAX_COLS];
     strcpy(temp, str1);
@@ -26,13 +28,12 @@ void bubbleSort(char arr[][MAX_COLS], int length){
 
 int main(void) {
 
-    FILE *fileptr;
-    char line[256];
     char heights[MAX_ROWS][MAX_COLS];
     int length = sizeof(heights) / sizeof(heights[0]);
 
+    FILE *fileptr;
+    char line[256];
     int i = 0;
-
     //Opening the file with fopen and putting it
     //in read only mode
     fileptr = fopen("data2.txt", "r");

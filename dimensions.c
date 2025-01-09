@@ -2,13 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-void getDimensions (const char *filename, int *rows) {
+int getDimensions (const char *filename, int *rows) {
 
     FILE *fileptr = fopen(filename, "r");
     char line[256];
     *rows = 0;
-
-    printf("%d/n", *rows);
 
     while (fgets(line, sizeof(line), fileptr)) {
 
@@ -16,23 +14,17 @@ void getDimensions (const char *filename, int *rows) {
         char *lastToken = NULL;
 
         while (token != NULL) { //as long as there are more tokens, keep going
-            printf("Token: %s\n", token); //this is the token
+            //printf("Token: %s\n", token);
+            //This line is just for debugging purposes
             lastToken = token;
             token = strtok(NULL, " "); //move forward
         }
 
-        *rows++;
+        //printf("rows is: %d\n", *rows);
+        (*rows)++;
 
     }
+
+    return *rows;
 
 }
-
-int main() { 
-    int rows, cols, maxWordLength; 
-    getDimensions("data2.txt", &rows); 
-
-    printf("Max Rows: %d\n", rows); 
-    printf("This should be 9 or 10 I think");
-
-    return 0; 
-    }
