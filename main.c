@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_COLS 50
-#define MAX_ROWS 10
+#define MAX_COLS 50 //this is how much each can hold
+#define MAX_ROWS 10 //This is the amount of actual lines in the text file
 
 void swap(char str1[], char str2[]) {
     char temp[MAX_COLS];
@@ -50,35 +50,40 @@ int main(void) {
         char *lastToken = NULL;
 
         while (token != NULL) { //as long as there are more tokens, keep going
-            printf("Token : %s\n", token); //this is the token
+            //printf("Token: %s\n", token); //this is the token
             lastToken = token;
             token = strtok(NULL, " "); //move forward
         }
 
         if (lastToken != NULL) {
-            printf("Last Token: %s\n", lastToken);
+            //printf("Last Token: %s\n", lastToken);
             strncpy(heights[i], lastToken, sizeof(heights[i]) - 1);
             heights[i][sizeof(heights[i]) - 1] = '\0';
-            printf("i is equal to:  %d\n", i);
+            //printf("i is equal to:  %d\n", i);
         }
 
         i++;
     }
 
     fclose(fileptr);
-
     int n = 10;
 
-    printf("Before sorting:\n"); for (int i = 0; i < n; i++) { 
+    /*
+    printf("Before sorting:\n"); 
+    for (int i = 0; i < n; i++) { 
         printf("%s\n", heights[i]);
     }
+    */
 
     bubbleSort(heights, n);
 
+    /*
     printf("\n");
-    printf("After sorting:\n"); for (int i = 0; i < n; i++) { 
+    printf("After sorting:\n"); 
+    for (int i = 0; i < n; i++) { 
         printf("%s\n", heights[i]);
     }
+    */
 
     FILE *sortedFile = fopen("Sorted_Data.csv", "w");
 
@@ -92,9 +97,7 @@ int main(void) {
     }
 
     fclose(sortedFile);
-
     printf("Data was read and written to sorted_data.csv\n");
-
     return 0;
 
 }
