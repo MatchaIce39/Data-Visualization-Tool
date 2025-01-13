@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_COLS 50 //this is how much each can hold
-#define MAX_ROWS 10 //This is the amount of actual lines in the text file
+#define MAX_COLS 50
+#define MAX_ROWS 100 
 
 int getDimensions(const char *filename, int *rows);
 
@@ -36,7 +36,7 @@ int main(void) {
     int i = 0;
     //Opening the file with fopen and putting it
     //in read only mode
-    fileptr = fopen("data2.txt", "r");
+    fileptr = fopen("data1.txt", "r");
 
     if (fileptr == NULL) { 
         printf("Error opening file\n"); 
@@ -88,12 +88,7 @@ int main(void) {
 
     FILE *sortedFile = fopen("Sorted_Data.csv", "w");
 
-    if(sortedFile == NULL){
-        printf("ERROR\n");
-        return 1;
-    }
-
-    for (int b = 0; b < length; b++){
+    for (int b = 0; b < i; b++){
         fprintf(sortedFile, "%d, %s\n", b, heights[b]);
     }
 
